@@ -16,11 +16,10 @@ jobs:
           node-version: 18
 
       - name: Install & Build
+        working-directory: frontend
         run: |
-          cd frontend
-          npm install
-          chmod +x node_modules/.bin/vite
-          node node_modules/vite/bin/vite.js build
+          npm install --legacy-peer-deps
+          ./node_modules/.bin/vite build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
