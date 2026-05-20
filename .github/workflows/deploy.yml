@@ -19,7 +19,8 @@ jobs:
         run: |
           cd frontend
           npm install
-          npx vite build
+          chmod +x node_modules/.bin/vite
+          node node_modules/vite/bin/vite.js build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
